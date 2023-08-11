@@ -1,0 +1,269 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+
+@import "./reset";
+@import "./variables";
+@import "./utilities";
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  height: 100vh;
+  background: $main-bg-light;
+
+  &.dark {
+    background: $main-bg-dark;
+  }
+
+  .bg-image {
+    height: 18.75rem;
+    background: url("../images/bg-desktop-light.jpg") no-repeat center
+      center/cover;
+    transition: 0.25s ease-in-out;
+
+    @media screen and (max-width: 36rem) {
+      background: url("../images/bg-mobile-light.jpg") no-repeat center
+        center/cover;
+    }
+
+    &.dark {
+      background: url("../images/bg-desktop-dark.jpg") no-repeat center
+        center/cover;
+
+      @media screen and (max-width: 36rem) {
+        background: url("../images/bg-mobile-dark.jpg") no-repeat center
+          center/cover;
+      }
+    }
+  }
+
+  .main {
+    width: 34.375rem;
+    height: 42.5rem;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+
+    @media screen and (max-width: 36rem) {
+      width: 90%;
+    }
+
+    .main__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.875rem;
+
+      h1 {
+        text-transform: uppercase;
+        color: $elements-bg-light;
+        font-size: 3rem;
+        letter-spacing: 0.7813rem;
+      }
+
+      img {
+        cursor: pointer;
+      }
+    }
+
+    .main__createTodo {
+      height: 3.75rem;
+      background: $elements-bg-light;
+      border-radius: 0.3125rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5625rem;
+      margin-bottom: 0.9375rem;
+
+      -webkit-box-shadow: 0rem 0rem 0.625rem 0rem rgba(200, 200, 200, 1);
+      -moz-box-shadow: 0rem 0rem 0.625rem 0rem rgba(200, 200, 200, 1);
+      box-shadow: 0rem 0rem 0.625rem 0rem rgba(200, 200, 200, 1);
+
+      &.dark {
+        background: $elements-bg-dark;
+
+        -webkit-box-shadow: 0rem 0rem 0.625rem 0rem rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0rem 0rem 0.625rem 0rem rgba(0, 0, 0, 0.5);
+        box-shadow: 0rem 0rem 0.625rem 0rem rgba(0, 0, 0, 0.5);
+      }
+
+      input {
+        font-family: inherit;
+        border: none;
+        outline: none;
+        flex: 1;
+        height: 100%;
+        font-size: 1.125rem;
+        font-weight: 400;
+
+        &.dark {
+          background: $elements-bg-dark;
+          color: $text-dark-hover;
+        }
+      }
+    }
+
+    .main__todos {
+      background: $elements-bg-light;
+      border-radius: 0.3125rem 0.3125rem 0 0;
+
+      &.dark {
+        background: $elements-bg-dark;
+      }
+
+      .main__todoItem {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        padding: 1.25rem 0;
+        padding-right: 1.25rem;
+        border-bottom: 0.0625rem solid $main-bg-light;
+        position: relative;
+
+        &.dark {
+          border-bottom: 0.0625rem solid hsl(233, 14%, 35%);
+        }
+
+        span {
+          flex: 1;
+          color: $text-light;
+          font-weight: 400;
+          transition: 0.25s ease-in-out;
+
+          &.dark {
+            color: $text-dark-hover;
+          }
+
+          &.finished {
+            color: $text-dark;
+            text-decoration: line-through;
+          }
+        }
+
+        img {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .main__listFooter {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: $elements-bg-light;
+      padding: 1.25rem;
+      position: relative;
+
+      -webkit-box-shadow: 0rem 0.3125rem 0.3125rem 0rem rgba(200, 200, 200, 1);
+      -moz-box-shadow: 0rem 0.3125rem 0.3125rem 0rem rgba(200, 200, 200, 1);
+      box-shadow: 0rem 0.3125rem 0.3125rem 0rem rgba(200, 200, 200, 1);
+
+      &.dark {
+        background: $elements-bg-dark;
+
+        -webkit-box-shadow: 0rem 0.625rem 0.625rem 0rem rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0rem 0.625rem 0.625rem 0rem rgba(0, 0, 0, 0.5);
+        box-shadow: 0rem 0.625rem 0.625rem 0rem rgba(0, 0, 0, 0.5);
+
+        .main__states {
+          @media screen and (max-width: 36rem) {
+            background: $elements-bg-dark;
+          }
+        }
+      }
+
+      .main__itemsLeft,
+      .main__clear {
+        color: $text-dark;
+        cursor: pointer;
+        transition: 0.25s ease-in-out;
+
+        @media screen and (max-width: 36rem) {
+          font-size: 1rem;
+        }
+
+        &:hover {
+          text-shadow: 0 0 0.0625rem black;
+        }
+
+        &.dark {
+          color: $text-dark;
+
+          &:hover {
+            color: $text-dark-hover;
+          }
+        }
+      }
+
+      .main__itemsLeft {
+        cursor: auto;
+
+        &:hover {
+          text-shadow: none;
+        }
+
+        &.dark {
+          &:hover {
+            color: $text-dark;
+          }
+        }
+      }
+
+      .main__states {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        color: $text-light;
+        font-weight: 700;
+
+        @media screen and (max-width: 36rem) {
+          position: absolute;
+          bottom: -130%;
+          background: $elements-bg-light;
+          width: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+          justify-content: center;
+          padding: 1.25rem 0;
+          border-radius: 0.3125rem;
+        }
+
+        li {
+          cursor: pointer;
+          transition: 0.25s ease-in-out;
+
+          &:hover,
+          &.active {
+            color: hsl(192, 100%, 67%);
+          }
+
+          &.dark {
+            color: $text-dark;
+
+            &:hover {
+              color: $text-dark-hover;
+            }
+
+            &.active {
+              color: hsl(192, 100%, 67%);
+            }
+          }
+        }
+      }
+    }
+
+    .main__dragdrop {
+      display: block;
+      color: $text-light;
+      font-size: 1rem;
+      font-weight: 700;
+      text-align: center;
+      margin-top: 3.125rem;
+
+      @media screen and (max-width: 36rem) {
+        margin-top: 6.25rem;
+      }
+    }
+  }
+}

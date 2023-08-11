@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <div class="bg-image" id="bg-image"></div>
+
+    <main class="main">
+      <header class="main__header">
+        <h1>Todo</h1>
+        <img
+          src="images/icon-moon.svg"
+          id="toggle-theme"
+          alt="Theme Toggler Icon"
+        />
+      </header>
+
+      <section class="main__createTodo">
+        <div class="radio"></div>
+        <input type="text" id="add-todo" placeholder="Create a new todo..." />
+      </section>
+
+      <ul class="main__todos" id="todos"></ul>
+
+      <footer class="main__listFooter" id="list-footer">
+        <small class="main__itemsLeft">
+          <span id="items-left"></span> items left</small
+        >
+        <ul class="main__states">
+          <li id="all">All</li>
+          <li id="active">Active</li>
+          <li id="completed">Completed</li>
+        </ul>
+        <small class="main__clear" id="clear-completed">Clear Completed</small>
+      </footer>
+
+      <small class="main__dragdrop">Drag and drop to reorder list</small>
+    </main>
+    <script src="Sortable.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

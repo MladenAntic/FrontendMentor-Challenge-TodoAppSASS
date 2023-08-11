@@ -1,0 +1,57 @@
+.radio {
+  width: 1.5625rem;
+  height: 1.5625rem;
+  border: 0.0625rem solid hsl(233, 11%, 84%);
+  border-radius: 50%;
+  margin-left: 1.5625rem;
+  cursor: pointer;
+  transition: none;
+
+  display: grid;
+  place-items: center;
+
+  &.dark {
+    border: 0.0625rem solid hsl(237, 14%, 26%);
+  }
+
+  &.check {
+    background: linear-gradient(
+      -45deg,
+      hsl(280, 87%, 65%),
+      hsl(192, 100%, 67%)
+    );
+
+    &:hover {
+      border: none;
+      background: none;
+      mask: none;
+      -webkit-mask: none;
+      animation: none;
+
+      background: linear-gradient(
+        -45deg,
+        hsl(280, 87%, 65%),
+        hsl(192, 100%, 67%)
+      );
+    }
+  }
+
+  &:hover {
+    border-radius: 3.125rem;
+    border: 0.0625rem solid transparent;
+    background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%))
+      border-box;
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: animateBorder 0.5s linear infinite;
+  }
+}
+
+@keyframes animateBorder {
+  to {
+    transform: rotate(360deg);
+  }
+}
